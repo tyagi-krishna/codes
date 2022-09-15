@@ -1,4 +1,4 @@
-name = input("enter your name: ")
+'''name = input("enter your name: ")
 
 file = open("names.txt","a")
 file.write(f"{name}\n")
@@ -13,5 +13,5 @@ for line in lines:
     print("hello,", line , end = "")
 
 
-file.close()
+file.close()'''
 
