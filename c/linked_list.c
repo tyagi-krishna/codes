@@ -1,34 +1,39 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct node 
+struct node
 {
-    int age;
+    int data;
     struct node* next;
+};
+
+struct node* head = NULL;
+
+void insertnode(int data)
+{
+    struct node* new = NULL;
+    new = (struct node *)malloc(sizeof(struct node*));
+    new->data = data;
+    new->next = head;
+    head = new;
 }
 
-print(struct node* n)
+void printlist(struct node* n)
 {
     while(n!=NULL)
     {
-        printf("%d\n", n->age);
+        printf("%d\n",n->data);
         n = n->next;
     }
 }
 
-int main(void)
+int main()
 {
-    struct node* a = NULL;
-    a = (struct node*)malloc(sizeof(struct node*));
-    struct node* b = NULL;
-    b = (struct node*)malloc(sizeof(struct node*));
-    struct node* c = NULL;
-    c = (struct node*)malloc(sizeof(struct node*));
-    a->next = b;
-    b->next = c;
-    a->age = 16;
-    b->age = 17;
-    c->age = 18;
-
-    print(a);
+    insertnode(1);
+    insertnode(2);
+    insertnode(3);
+    insertnode(4);
+    insertnode(5);
+    insertnode(6);
+    printlist(head);
 }
