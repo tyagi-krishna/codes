@@ -1,16 +1,16 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from nsetools import Nse
 nse = Nse()
 import requests
 # Create your views here.
-def index(request):
-    q = nse.get_quote('infy')
-    p = q["averagePrice"]
-    return HttpResponse(p)
+def home(request):
+    q = api.gainers()
+    return HttpResponse(q)
 
-def page(request):
-    return render(request, 'index.html')
+def searchcode(request, code):
+    s = nse.get_quote(code)
+    return JsonResponse(s)
 
-def hello(request):
-    return HttpResponse('Hello World!')
+def search(request):
+    return render(request, 'search.html')
