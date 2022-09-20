@@ -8,3 +8,9 @@ def index(request):
     q = nse.get_quote('infy')
     p = q["averagePrice"]
     return HttpResponse(p)
+
+def page(request):
+    return render(request, 'index.html')
+
+def hello(request):
+    return HttpResponse('Hello World!')
