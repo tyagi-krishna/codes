@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <title>search company</title>
@@ -20,22 +21,14 @@
             document.addEventListener('DOMContentLoaded' , function() {
                 document.querySelector('#foo').onclick = function() {
                     searchword = document.querySelector('#comapny').value;
-                    table = document.querySelector('#TABLE').innerHTML; 
-                    fetch(`http://127.0.0.1:8000/search/${searchword}`)
+                    fetch(`https://query1.finance.yahoo.com/v8/finance/chart/${searchword}.NS`)
                     .then(response => response.json())
                     .then(data => {
-                        for(let i=0 ; i<=68; i++){
-                            s = Object.keys(data)[i];
-                            const p = Object.values(data)[i];
-                            table = table +'<tr><tr>' +s +'----------'+ p +  '</td></tr><br>';
-                        }
-                        document.querySelector('#TABLE').innerHTML = table;
-                        
-                });
+                        const p = data['symbol'];
+                        document.querySelector('h1').innerHTML = searchword;});
                     return false;
                 };
             })
-            
         </script>
     </head>
     <body>
@@ -56,8 +49,35 @@
         </form>
         <h1>Symbol</h1>
         <hr>
-        <div id='TABLE'>
-        </div>
+        <table>
+            <tr>
+                <td>Currency</td>
+            </tr>
+            <tr>
+                <td>Currency</td>
+            </tr>
+            <tr>
+                <td>Currency</td>
+            </tr>
+            <tr>
+                <td>Currency</td>
+            </tr>
+            <tr>
+                <td>Currency</td>
+            </tr>
+            <tr>
+                <td>Currency</td>
+            </tr>
+            <tr>
+                <td>Currency</td>
+            </tr>
+            <tr>
+                <td>Currency</td>
+            </tr>
+            <tr>
+                <td>Currency</td>
+            </tr>
+        </table>
         <hr>
     </body>
 </html>
