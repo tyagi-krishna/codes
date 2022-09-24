@@ -2,8 +2,7 @@
     <head>
         <title>search company</title>
         <style>
-            header {searchWord = document.getElementById('search').value;
-            window.location.href = `https://query1.finance.yahoo.com/v8/finance/chart/${searchWord}.NS`;
+            header {
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                 font-style: italic;
                 font-size: 45px;
@@ -15,32 +14,61 @@
             form {
                 text-align: center;
             }
+            table, thead, tbody{
+                width: 100%;
+            }
+            #propertyresult {
+                text-align: center;
+            }
         </style>
         <script>
             document.addEventListener('DOMContentLoaded' , function() {
                 document.querySelector('#foo').onclick = function() {
                     searchword = document.querySelector('#comapny').value;
-                    table = document.querySelector('#TABLE').innerHTML; 
+                    table = document.querySelector('tbody').innerHTML; 
                     fetch(`http://127.0.0.1:8000/search/${searchword}`)
                     .then(response => response.json())
                     .then(data => {
-                        for(let i=0 ; i<=68; i++){
-                            s = Object.keys(data)[i];
-                            const p = Object.values(data)[i];
-                            table = table +'<tr><tr>' +s +'----------'+ p +  '</td></tr><br>';
+                        for(let i=1 ; i<=67; i++){
+                            s = Object.keys(data)[i].toUpperCase();
+                            p = Object.values(data)[i];
+                            table = table +'<tr><td>'+s+'</td><td>'+p+'</td></tr>';
                         }
-                        document.querySelector('#TABLE').innerHTML = table;
+                        document.querySelector('tbody').innerHTML = table;
                         
                 });
                     return false;
                 };
+                document.querySelector('#propertysearch').onclick = function() {
+                    searchproperty = document.querySelector('#property').value;
+                    z = searchproperty.toUpperCase();
+                    fetch(`http://127.0.0.1:8000/search/${searchword}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        let equal = 0;
+                        for(let i=1 ; i<=67; i++){
+                            s = Object.keys(data)[i].toUpperCase();
+                            if(z === s) {
+                                equal = i;
+                            }    
+                        }
+                        if(equal===0) {
+                            document.querySelector('#result').innerHTML = 'Invalid Property';
+                        }
+                        else {
+                            v = Object.values(data)[equal];
+                            document.querySelector('#result').innerHTML = v;
+                        }
+                        
+                    })
+                }
             })
             
         </script>
     </head>
     <body>
         <header>
-            Stocks_Verse 
+            Stock_Domain 
         </header>
         <hr>
         <div id="search">
@@ -51,13 +79,29 @@
         </div> 
         <hr>
         <form>
+            <h1>Enter the code of Company:</h1>
             <input id="comapny" name="search" type="text" class="query-search" placeholder="Search...">
             <input id='foo' type="submit" value = "View Details"/>
         </form>
-        <h1>Symbol</h1>
-        <hr>
-        <div id='TABLE'>
+        <div id='propertyresult'>
+        <h2>If you want a specific property enter here:</h2>
+        <input id='property' name='property' type='text' placeholder='property'>
+        <input id='propertysearch' type="submit" value='View property'>
+        <p>Property details are:</p>
+        <p id='result'>--</p>
         </div>
+        <hr>
+        <table>
+            <thead>
+                <tr>
+                    <td>Property</td>
+                    <td>Value</td>
+                </tr>
+            </thead>
+            <hr>
+            <tbody>
+            </tbody>
+        </table>
         <hr>
     </body>
 </html>

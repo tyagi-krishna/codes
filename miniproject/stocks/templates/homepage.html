@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <style>
@@ -40,6 +39,7 @@
                 width: 33%;
             }
             #search {
+                color: red;
                 text-align: center;
             }
             #header-search {
@@ -56,23 +56,34 @@
             }
         </style>
         <script>
-            alert("Welcomt to Stocks_Verse");
+            alert("Welcomt to Stock_Domain");
             function search() {
                 window.location.href = `http://127.0.0.1:8000/search`;
+            }
+            function gainers() {
+                window.location.href = `http://127.0.0.1:8000/gainers`;
+            }
+            function losers() {
+                window.location.href = `http://127.0.0.1:8000/losers`;
             }
         </script>
     </head>
     <body>
+        <hr>
+        <hr>
         <header>
-            Stocks_Verse 
+            Stock_Domain
         </header>
         <hr>
+        <hr>
         <div id="search">
-            <a href="http://127.0.0.1:8000/" , color: red;>Home</a>
-            <a href="http://127.0.0.1:8000/search" , color: red;>Search</a>
-            <a href="" , color: red;>About</a>
-            <a href="" , color: red;>Credits</a>
+            <a href="http://127.0.0.1:8000/" >--Home--</a>
+            <a href="http://127.0.0.1:8000/search" >--Search--</a>
+            <a href="http://127.0.0.1:8000/gainers">--Gainers--</a>
+            <a href="http://127.0.0.1:8000/losers">--Losers--</a>
+            <a href="">--Credits--</a>
         </div>
+        <hr>
         <hr>
         <div id="overview">
             <h2>
@@ -86,11 +97,23 @@
             </h3>
         </div>
         <hr>
+        <hr>
         <div>
         <h2>
-            To check information about companies click; <button , id='home-search', onclick= "search()", name='Serach' ;>Search</button>
+            To check information about Companies; <br><button , id='home-search', onclick= "search()", name='Serach Companies' ;>Search Companies</button>
         </h2>
         <hr>
+        <hr>
+        <h3 style='text-align:center;'>
+            To check information about Top Gainers; <button , id='home-gainers', onclick= "gainers()", name='Serach' ;>Top Gainers</button>
+        </h3>
+        <h3 style='text-align:center;'>
+            To check information about Top Losers; <button , id='home-losers', onclick= "losers()", name='Serach' ;>Top Losers</button>
+        </h3>
+        <hr>
+        <hr>
+        <div id='gainers'>
+        </div>
         <div id="information">
             <h2>
                 Stock Prices:
@@ -103,5 +126,7 @@
             </p>
         </div>
         <a href='https://en.wikipedia.org/wiki/Stock' , id='wikipedia'>Know More about stocks.</a>
+        <hr>
+        <hr>
     </body>
 </html>

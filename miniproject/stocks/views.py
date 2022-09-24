@@ -8,8 +8,14 @@ def home(request):
     return render(request, 'homepage.html')
         
 def gainers(request):
+    return render(request, 'gainers.html')
+
+def losers(request):
+    return render(request, 'losers.html')         
+
+def gainersf(request):
     q = nse.get_top_gainers()
-    return HttpResponse(q)
+    return JsonResponse(q)
 
 def searchpage(request, code):
     s = nse.get_quote(code)

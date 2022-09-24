@@ -1,5 +1,7 @@
 from nsetools import Nse
 nse = Nse()
        
-q = nse.get_quote('infy')
-print(q)
+code = int(input("Enter the code:"))
+q = nse.get_top_gainers()
+s = q[code]["symbol"]
+print(s)
