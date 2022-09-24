@@ -5,18 +5,14 @@
             header {
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
                 font-style: italic;
-                border-radius: 0.3cm;
                 font-size: 45px;
                 text-align: center;
-                margin-right: 2cm ;
-                background-color: white;
             }
             #overview {
-                background-image: url('https://wallpaperaccess.com/full/2927307.jpg');
+                background-image: url('https://media.istockphoto.com/photos/glowing-light-market-chart-of-business-glowing-stock-graph-or-data-picture-id1322479796?k=20&m=1322479796&s=612x612&w=0&h=xuAfhKW2T00-bved-NH-3_3vJxAK92tMGoEt8VAjPnE=');
                 width: auto;
                 height: 400px;
                 text-align: center;
-                text-margin:2cm;
                 color: antiquewhite;
                 font-weight: lighter;
             }
@@ -25,10 +21,12 @@
                 font-size: 70px;
             }
             div > h2 {
-                font-size: 40px;
+                font-size: 30px;
+                text-align: center;
             }
             #info {
                 font-size: 20px;
+                text-align: center;
             }
             table {
                 border: 1px;
@@ -52,8 +50,13 @@
                 width: 25%;
                 font-size: 20px;
             }
+            #wikipedia {
+                font-size: 20px;
+                margin: 15cm;
+            }
         </style>
         <script>
+            alert("Welcomt to Stocks_Verse");
             function search() {
                 window.location.href = `http://127.0.0.1:8000/search`;
             }
@@ -61,8 +64,7 @@
     </head>
     <body>
         <header>
-            Stocks_Verse <br> 
-            <input name='Enter the company name', placeholder='Enter the company name' , id="search-field"> <button id='header-search',onclick= "search()", width: '20%'; >Search</button>
+            Stocks_Verse 
         </header>
         <hr>
         <div id="search">
@@ -73,31 +75,33 @@
         </div>
         <hr>
         <div id="overview">
-            <h2 style="margin-left: 2cm;">
+            <h2>
                 Welcome,
             </h2>
-            <h1 style="margin-left: 2cm;">
+            <h1>
                 To the world of stocks.
             </h1>
-            <h3 style="margin-left: 2cm;">
+            <h3>
                 Here, on this website of ours, you can check the stock prices of differnt Indian Companies.
             </h3>
         </div>
-        <div style='margin-left: 2cm;'>
+        <hr>
+        <div>
         <h2>
             To check information about companies click; <button , id='home-search', onclick= "search()", name='Serach' ;>Search</button>
         </h2>
+        <hr>
         <div id="information">
-            <h2 style="margin-left: 2cm;">
+            <h2>
                 Stock Prices:
             </h2>
-            <p id="info" , style="margin-left: 2cm; margin-right: 2cm;" >
+            <p id="info" >
                 In finance, stock (also capital stock) consists of the shares of which ownership of a corporation or company is divided.
                 A single share of the stock means fractional ownership of the corporation in proportion to the total number of shares. 
                 Stocks are a function of capitalism, and therefore the stock market operates by the price mechanism: a stock cannot be classified as an investment unless it pays a dividend – the standard dividend yield being 2% – otherwise, it must be classified as a speculation (gambling).
                 A person who owns a percentage of the stock has the ownership of the corporation proportional to their share. The shares form a stock. 
             </p>
-            <a href='https://en.wikipedia.org/wiki/Stock'>Know More about stocks.</a>
         </div>
+        <a href='https://en.wikipedia.org/wiki/Stock' , id='wikipedia'>Know More about stocks.</a>
     </body>
 </html>
