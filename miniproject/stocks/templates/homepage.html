@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script>
-            function setGetParameter(){
-                searchWord = document.getElementById('search').value;
-                window.location.href = "http://127.0.0.1:8000/search/" +searchWord;
-            }
-        </script>
         <style>
             header {
                 font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -14,15 +8,15 @@
                 border-radius: 0.3cm;
                 font-size: 45px;
                 text-align: center;
+                margin-right: 2cm ;
                 background-color: white;
             }
-            body {
-                background-image: url('background3.jpg');
-                background-size: 1410px;
-            }
             #overview {
-                width: 800px;
-                margin-top: 2cm;
+                background-image: url('https://wallpaperaccess.com/full/2927307.jpg');
+                width: auto;
+                height: 400px;
+                text-align: center;
+                text-margin:2cm;
                 color: antiquewhite;
                 font-weight: lighter;
             }
@@ -36,12 +30,48 @@
             #info {
                 font-size: 20px;
             }
+            table {
+                border: 1px;
+                width: 1420px;
+                font-size: 20px;
+                background-color: grey;
+            }
+            #home-search {
+                background-color: skyblue;
+                font-size: 30px;
+                width: 33%;
+            }
+            #search {
+                text-align: center;
+            }
+            #header-search {
+                width: 10%;
+                font-size: 20px;
+            }
+            #search-field {
+                width: 25%;
+                font-size: 20px;
+            }
         </style>
+        <script>
+            function search() {
+                window.location.href = `http://127.0.0.1:8000/search`;
+            }
+        </script>
     </head>
-    <body style="background-image: background3.jpg;">
+    <body>
         <header>
-            Stock Prices Project Website
+            Stocks_Verse <br> 
+            <input name='Enter the company name', placeholder='Enter the company name' , id="search-field"> <button id='header-search',onclick= "search()", width: '20%'; >Search</button>
         </header>
+        <hr>
+        <div id="search">
+            <a href="http://127.0.0.1:8000/" , color: red;>Home</a>
+            <a href="http://127.0.0.1:8000/search" , color: red;>Search</a>
+            <a href="" , color: red;>About</a>
+            <a href="" , color: red;>Credits</a>
+        </div>
+        <hr>
         <div id="overview">
             <h2 style="margin-left: 2cm;">
                 Welcome,
@@ -55,13 +85,8 @@
         </div>
         <div style='margin-left: 2cm;'>
         <h2>
-            To check information about companies click;
+            To check information about companies click; <button , id='home-search', onclick= "search()", name='Serach' ;>Search</button>
         </h2>
-        <input onclick="window.location.href = "http://127.0.0.1:8000/search"" type="button" class="btn btn-primary" value = "View Details"/>
-        </div>
-        <div style="margin-left: 2cm;">
-            The top Companies are:
-        </div>
         <div id="information">
             <h2 style="margin-left: 2cm;">
                 Stock Prices:
@@ -72,6 +97,7 @@
                 Stocks are a function of capitalism, and therefore the stock market operates by the price mechanism: a stock cannot be classified as an investment unless it pays a dividend – the standard dividend yield being 2% – otherwise, it must be classified as a speculation (gambling).
                 A person who owns a percentage of the stock has the ownership of the corporation proportional to their share. The shares form a stock. 
             </p>
+            <a href='https://en.wikipedia.org/wiki/Stock'>Know More about stocks.</a>
         </div>
     </body>
 </html>
