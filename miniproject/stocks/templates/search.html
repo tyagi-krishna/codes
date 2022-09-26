@@ -53,8 +53,18 @@
                         
                     })
                 }
+                document.querySelector('#searchjson').onclick = function() {
+                    searchword = document.querySelector('#searchcompany').value;
+                    if(searchword === '') {
+                        document.querySelector("#searchjsonresult").innerHTML = 'Please enter the company code first.';
+                    }
+                    else {
+                        window.location.href = `http://127.0.0.1:8000/search/${searchword}/`;
+
+                    }
+                }
+                
             })
-            
         </script>
     </head>
     <body>
@@ -87,6 +97,12 @@
                 <tbody>
                 </tbody>
             </table>
+        </div>
+        <hr>
+        <hr>
+        <div id='searchjsondiv' style='margin-left:3cm;'>
+            <h3 id='searchjsonresult' style='color:antiquewhite;'>To see the Json file of this page Click Below.</h3>
+            <button type='submit' palceholder='Json file' id='searchjson' >Json file</button>
         </div>
     </body>
 </html>

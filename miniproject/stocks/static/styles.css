@@ -106,7 +106,7 @@ button:hover {
     font-size: 25px;
     align:center;
 }
-#propertyresult {
+#propertyresult , #searchjsondiv {
     color: antiquewhite;
     margin-left: 3cm;
     font-size: 20px;
@@ -130,4 +130,16 @@ button:hover {
 #searchpageheading {
     color:antiquewhite;
     margin-left: 2cm;
+}
+#searchjson {
+    color: antiquewhite;
+    font-size: 20px;
+    border-radius: 34px;
+    width: 3cm;
+    height: 1cm;
+    border-style: none;
+    background-color: transparent;
+}
+#searchjson:hover {
+    background-color: orange;
 }
