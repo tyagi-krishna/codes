@@ -11,11 +11,13 @@
                     .then(response => response.json())
                     .then(data => {
                         if(data != null) {
+
                             for(let i=1 ; i<=67; i++){
                                 s = Object.keys(data)[i].toUpperCase();
                                 p = Object.values(data)[i];
                                 table = table +'<tr><td>'+s+'</td><td>'+p+'</td></tr>';
                             }
+                            document.querySelector('tbody').innerHTML = "";
                             document.querySelector('tbody').innerHTML = table;
                         }
                         else {
