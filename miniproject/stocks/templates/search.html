@@ -6,7 +6,7 @@
             document.addEventListener('DOMContentLoaded' , function() {
                 document.querySelector('#searchbutton').onclick = function() {
                     searchword = document.querySelector('#searchcompany').value;
-                    table = document.querySelector('tbody').innerHTML; 
+                    table = ""; 
                     fetch(`http://127.0.0.1:8000/search/${searchword}`)
                     .then(response => response.json())
                     .then(data => {
@@ -17,7 +17,6 @@
                                 p = Object.values(data)[i];
                                 table = table +'<tr><td>'+s+'</td><td>'+p+'</td></tr>';
                             }
-                            document.querySelector('tbody').innerHTML = "";
                             document.querySelector('tbody').innerHTML = table;
                         }
                         else {
