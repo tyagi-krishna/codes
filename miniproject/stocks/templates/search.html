@@ -1,48 +1,33 @@
 <html>
     <head>
-        <title>search company</title>
-        <style>
-            header {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-style: italic;
-                font-size: 45px;
-                text-align: center;
-            }
-            #search {
-                text-align: center;
-            }
-            form {
-                text-align: center;
-            }
-            table, thead, tbody{
-                width: 100%;
-            }
-            #propertyresult {
-                text-align: center;
-            }
-        </style>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
         <script>
             document.addEventListener('DOMContentLoaded' , function() {
-                document.querySelector('#foo').onclick = function() {
-                    searchword = document.querySelector('#comapny').value;
+                document.querySelector('#searchbutton').onclick = function() {
+                    searchword = document.querySelector('#searchcompany').value;
                     table = document.querySelector('tbody').innerHTML; 
                     fetch(`http://127.0.0.1:8000/search/${searchword}`)
                     .then(response => response.json())
                     .then(data => {
-                        for(let i=1 ; i<=67; i++){
-                            s = Object.keys(data)[i].toUpperCase();
-                            p = Object.values(data)[i];
-                            table = table +'<tr><td>'+s+'</td><td>'+p+'</td></tr>';
+                        if(data != null) {
+                            for(let i=1 ; i<=67; i++){
+                                s = Object.keys(data)[i].toUpperCase();
+                                p = Object.values(data)[i];
+                                table = table +'<tr><td>'+s+'</td><td>'+p+'</td></tr>';
+                            }
+                            document.querySelector('tbody').innerHTML = table;
                         }
-                        document.querySelector('tbody').innerHTML = table;
-                        
+                        else {
+                            document.querySelector('thead').innerHTML = 'No data is available for this Company Code';   
+                        }
                 });
                     return false;
                 };
                 document.querySelector('#propertysearch').onclick = function() {
                     searchproperty = document.querySelector('#property').value;
                     z = searchproperty.toUpperCase();
-                    fetch(`http://127.0.0.1:8000/search/${searchword}`)
+                    fetch(`http://127.0.0.1:8000/search/${searchword}/`)
                     .then(response => response.json())
                     .then(data => {
                         let equal = 0;
@@ -57,7 +42,12 @@
                         }
                         else {
                             v = Object.values(data)[equal];
-                            document.querySelector('#result').innerHTML = v;
+                            if( v != null) {
+                                document.querySelector('#result').innerHTML = v;    
+                            }
+                            else {
+                            document.querySelector('#result').innerHTML = 'null';    
+                            }
                         }
                         
                     })
@@ -68,40 +58,34 @@
     </head>
     <body>
         <header>
-            Stock_Domain 
+            <button onclick="window.location.href='http://127.0.0.1:8000/'">Home</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/search'">Serach</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/codes'">Symbols</button>
+            <button>About</button>
         </header>
         <hr>
-        <div id="search">
-            <a href="http://127.0.0.1:8000/">Home</a>
-            <a href="http://127.0.0.1:8000/search">Search</a>
-            <a href="">About</a>
-            <a href="">Credits</a>
-        </div> 
+        <input id="searchcompany" placeholder="Enter Company Symbol" type="text">
+        <input id='searchbutton' type="submit" placeholder="Search"  >
         <hr>
-        <form>
-            <h1>Enter the code of Company:</h1>
-            <input id="comapny" name="search" type="text" class="query-search" placeholder="Search...">
-            <input id='foo' type="submit" value = "View Details"/>
-        </form>
         <div id='propertyresult'>
-        <h2>If you want a specific property enter here:</h2>
-        <input id='property' name='property' type='text' placeholder='property'>
-        <input id='propertysearch' type="submit" value='View property'>
-        <p>Property details are:</p>
-        <p id='result'>--</p>
+            <h2>If you want a specific property enter here:</h2>
+            <input id='property' name='property' type='text' placeholder='property'>
+            <input id='propertysearch' type="submit" value='View property'>
+            <p>Property details are:</p>
+            <p id='result'>--</p>
         </div>
-        <hr>
-        <table>
-            <thead>
-                <tr>
-                    <td>Property</td>
-                    <td>Value</td>
-                </tr>
-            </thead>
-            <hr>
-            <tbody>
-            </tbody>
-        </table>
-        <hr>
+        <div id="table">
+            <table id='searchtable'>
+                <thead>
+                    <tr>
+                        <td>Property</td>
+                        <td>Value</td>
+                    </tr>
+                </thead>
+                <hr>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

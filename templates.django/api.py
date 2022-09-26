@@ -1,7 +1,9 @@
 from nsetools import Nse
 nse = Nse()
-       
-code = int(input("Enter the code:"))
-q = nse.get_top_gainers()
-s = q[code]["symbol"]
-print(s)
+
+q = codes = nse.get_stock_codes()
+for key in q.keys(): 
+    print(key)
+
+x = q['SYMBOL']
+print(x)

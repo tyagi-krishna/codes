@@ -1,132 +1,24 @@
-<html lang="en">
+<html>
     <head>
-        <style>
-            header {
-                font-family: Verdana, Geneva, Tahoma, sans-serif;
-                font-style: italic;
-                font-size: 45px;
-                text-align: center;
-            }
-            #overview {
-                background-image: url('https://media.istockphoto.com/photos/glowing-light-market-chart-of-business-glowing-stock-graph-or-data-picture-id1322479796?k=20&m=1322479796&s=612x612&w=0&h=xuAfhKW2T00-bved-NH-3_3vJxAK92tMGoEt8VAjPnE=');
-                width: auto;
-                height: 400px;
-                text-align: center;
-                color: antiquewhite;
-                font-weight: lighter;
-            }
-            div > h1 {
-                text-rendering: geometricPrecision;
-                font-size: 70px;
-            }
-            div > h2 {
-                font-size: 30px;
-                text-align: center;
-            }
-            #info {
-                font-size: 20px;
-                text-align: center;
-            }
-            table {
-                border: 1px;
-                width: 1420px;
-                font-size: 20px;
-                background-color: grey;
-            }
-            #home-search {
-                background-color: skyblue;
-                font-size: 30px;
-                width: 33%;
-            }
-            #search {
-                color: red;
-                text-align: center;
-            }
-            #header-search {
-                width: 10%;
-                font-size: 20px;
-            }
-            #search-field {
-                width: 25%;
-                font-size: 20px;
-            }
-            #wikipedia {
-                font-size: 20px;
-                text-align: center;
-            }
-        </style>
-        <script>
-            alert("Welcomt to Stock_Domain");
-            function search() {
-                window.location.href = `http://127.0.0.1:8000/search`;
-            }
-            function gainers() {
-                window.location.href = `http://127.0.0.1:8000/gainers`;
-            }
-            function losers() {
-                window.location.href = `http://127.0.0.1:8000/losers`;
-            }
-        </script>
+        <title>Homepage</title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'styles.css' %}">
     </head>
     <body>
-        <hr>
-        <hr>
         <header>
-            Stock_Domain
+            <button onclick="window.location.href='http://127.0.0.1:8000/'">Home</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/search'">Serach</button>
+            <button onclick="window.location.href='http://127.0.0.1:8000/codes'">Symbols</button>
+            <button>About</button>
         </header>
         <hr>
-        <hr>
-        <div id="search">
-            <a href="http://127.0.0.1:8000/" >--Home--</a>
-            <a href="http://127.0.0.1:8000/search" >--Search--</a>
-            <a href="http://127.0.0.1:8000/gainers">--Gainers--</a>
-            <a href="http://127.0.0.1:8000/losers">--Losers--</a>
-            <a href="">--Credits--</a>
+        <div id="starter">
+            Check the <br><span>Stock Market Prices</span><br>of differnet Indian Countries.<br><br>
+            <button onclick="window.location.href='http://127.0.0.1:8000/search'">Explore Here</button>
         </div>
-        <hr>
-        <hr>
-        <div id="overview">
-            <h2>
-                Welcome,
-            </h2>
-            <h1>
-                To the world of stocks.
-            </h1>
-            <h3>
-                Here, on this website of ours, you can check the stock prices of differnt Indian Companies.
-            </h3>
+        <div id="nse">
+            To go to the Official NSE India Website.<br><br>
+            <button onclick="window.location.href='https://www.nseindia.com/'">NSE India</button>
         </div>
-        <hr>
-        <hr>
-        <div>
-        <h2>
-            To check information about Companies; <br><button , id='home-search', onclick= "search()", name='Serach Companies' ;>Search Companies</button>
-        </h2>
-        <hr>
-        <hr>
-        <h3 style='text-align:center;'>
-            To check information about Top Gainers; <button , id='home-gainers', onclick= "gainers()", name='Serach' ;>Top Gainers</button>
-        </h3>
-        <h3 style='text-align:center;'>
-            To check information about Top Losers; <button , id='home-losers', onclick= "losers()", name='Serach' ;>Top Losers</button>
-        </h3>
-        <hr>
-        <hr>
-        <div id='gainers'>
-        </div>
-        <div id="information">
-            <h2>
-                Stock Prices:
-            </h2>
-            <p id="info" >
-                In finance, stock (also capital stock) consists of the shares of which ownership of a corporation or company is divided.
-                A single share of the stock means fractional ownership of the corporation in proportion to the total number of shares. 
-                Stocks are a function of capitalism, and therefore the stock market operates by the price mechanism: a stock cannot be classified as an investment unless it pays a dividend – the standard dividend yield being 2% – otherwise, it must be classified as a speculation (gambling).
-                A person who owns a percentage of the stock has the ownership of the corporation proportional to their share. The shares form a stock. 
-            </p>
-        </div>
-        <a href='https://en.wikipedia.org/wiki/Stock' , id='wikipedia'>Know More about stocks.</a>
-        <hr>
-        <hr>
     </body>
 </html>

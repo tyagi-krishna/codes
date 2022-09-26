@@ -7,19 +7,16 @@ import requests
 def home(request):
     return render(request, 'homepage.html')
         
-def gainers(request):
-    return render(request, 'gainers.html')
+def codes(request):
+    return render(request, 'codes.html')
 
-def losers(request):
-    return render(request, 'losers.html')         
-
-def gainersf(request):
-    q = nse.get_top_gainers()
-    return JsonResponse(q)
+def codesfunction(request):
+    codes = nse.get_stock_codes()
+    return JsonResponse(codes, safe=False)
 
 def searchpage(request, code):
     s = nse.get_quote(code)
-    return JsonResponse(s)
+    return JsonResponse(s, safe=False)
 
 def search(request):
     return render(request, 'search.html')
