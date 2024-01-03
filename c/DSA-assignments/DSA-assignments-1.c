@@ -1,6 +1,6 @@
 /* Programs included are:
 1.  sum of diagonal , product of diagonal.
-2.  delete dupicate elements form an array.
+2.  delete duplicate elements form an array.
 3.  merge two arrays and then sort them in ascending order.
 4.  printing non-zero element of a sparse matrix.
 
@@ -55,9 +55,8 @@ int main()
         printf("The matrix should be a square matrix.\n");
         return 0;
     }
-    
-}  */
 
+}  */
 
 /*#include <stdio.h>
 int main()
@@ -101,7 +100,6 @@ int main()
         printf("0\n");
     }
 }*/
-
 
 /*#include <stdio.h>
 int main()
@@ -149,8 +147,6 @@ int main()
     }
 }*/
 
-
-
 /*#include <stdio.h>
 int main()
 {
@@ -175,7 +171,7 @@ int main()
         for(int i = 0 ; i<n ; i++)
         {
             printf("%d       %d       %d\n" , r[i] , c[i] , v[i]);
-        }    
+        }
     }
     else
    {
