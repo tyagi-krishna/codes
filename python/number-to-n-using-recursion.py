@@ -2,7 +2,7 @@ n = int(input("enter the number to print upto: "))
 
 def printf(i):
     if i==0:
-        return ;
+        return 
     
     else:
         print(i)
