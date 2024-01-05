@@ -1,0 +1,70 @@
+#include <iostream>
+#include<queue>
+using namespace std;
+
+class Node {
+    public:
+        Node *left = NULL;
+        Node *right = NULL;
+        int val = 0;
+};
+
+class BST {
+    public:
+        Node *root = NULL;
+        void addNode(int val);
+        void traverse();
+};
+
+int main() {
+    BST bst;
+    bst.addNode(2);
+    bst.addNode(3);
+    bst.addNode(1);
+    bst.traverse();
+
+    return 0;
+}
+
+void BST::traverse() {
+    Node *temp = root;
+    queue<Node *> queue;
+    if(temp!= NULL) {
+        queue.push(temp);
+        while(!queue.empty()) {
+            cout << temp->val<<endl;
+            temp = queue.front();
+            queue.pop();
+            if (temp->left != NULL)
+            {
+                queue.push(temp->left);
+            }
+            if(temp->right != NULL) {
+                queue.push(temp->right);
+            }
+        }
+    }
+}
+
+void BST::addNode(int val) {
+    Node *temp = new Node();
+    temp->val = val;
+    if (root == NULL)
+    {
+        root = temp;
+    }
+    else {
+        Node *node = root;
+        while(node) {
+            if (val > node->val)
+            {
+                node = node->right;
+            }
+            else {
+                node = node->left;
+            }
+        }
+        cout << temp->val << endl;
+        node = temp;
+    }
+}
