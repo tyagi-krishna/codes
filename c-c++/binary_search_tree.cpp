@@ -23,15 +23,17 @@ int main() {
     bst.addNode(3);
     bst.addNode(1);
     bst.traverse();
-    bst.search(3);
-    bst.search(4);
+    cout<<"Search Result for 3 are "<<bst.search(3)<<endl;
+    cout<<"Search Result for 4 are "<<bst.search(4)<<endl;
     return 0;
 }
 
 bool BST::search(int val) {
     Node* temp = root;
-    while(temp) {
-        if(val == temp->val) {
+    while (temp)
+    {
+        if (val == temp->val)
+        {
             return true;
         }
         else if(val > temp->val) {
@@ -73,7 +75,10 @@ void BST::addNode(int val) {
     }
     else {
         Node *node = root;
-        while(node) {
+        Node *parent = root;
+        while (node)
+        {
+            parent = node;
             if (val > node->val)
             {
                 node = node->right;
@@ -82,7 +87,11 @@ void BST::addNode(int val) {
                 node = node->left;
             }
         }
-        cout << temp->val << endl;
-        node = temp;
+        if(val > parent->val) {
+            parent->right = temp;
+        }
+        else {
+            parent->left = temp;
+        }
     }
 }
