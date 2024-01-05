@@ -14,6 +14,7 @@ class BST {
         Node *root = NULL;
         void addNode(int val);
         void traverse();
+        bool search(int val);
 };
 
 int main() {
@@ -22,8 +23,25 @@ int main() {
     bst.addNode(3);
     bst.addNode(1);
     bst.traverse();
-
+    bst.search(3);
+    bst.search(4);
     return 0;
+}
+
+bool BST::search(int val) {
+    Node* temp = root;
+    while(temp) {
+        if(val == temp->val) {
+            return true;
+        }
+        else if(val > temp->val) {
+            temp = temp->right;
+        }
+        else {
+            temp = temp->left;
+        }
+    }
+    return false;
 }
 
 void BST::traverse() {
