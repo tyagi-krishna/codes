@@ -28,8 +28,6 @@ int main() {
     return 0;
 }
 
-//comment
-
 bool BST::search(int val) {
     Node* temp = root;
     while (temp)
